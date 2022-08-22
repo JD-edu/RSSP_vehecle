@@ -44,8 +44,8 @@ Compatible with all TTGO camera products, written by LewisHe
 /***************************************
  *  WiFi
  **************************************/
-#define WIFI_SSID   "GBSA0001"
-#define WIFI_PASSWD "GBSA0001"
+#define WIFI_SSID   "codinglab"
+#define WIFI_PASSWD "codinglab"
 
 
 #include "select_pins.h"

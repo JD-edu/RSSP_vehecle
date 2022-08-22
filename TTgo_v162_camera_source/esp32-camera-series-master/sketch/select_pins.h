@@ -161,11 +161,11 @@ Compatible with all TTGO camera products, written by LewisHe
 #define I2C_SDA             21
 #define I2C_SCL             22
 
-#define BUTTON_1            15
+//#define BUTTON_1            15
 
 #define SSD130_MODLE_TYPE   0   // 0 : GEOMETRY_128_64  // 1: GEOMETRY_128_32
 
-#define AS312_PIN           19  //not rtc io ,can't form deepsleep wakeup
+//#define AS312_PIN           19  //not rtc io ,can't form deepsleep wakeup
 
 #define IIS_SCK             26
 #define IIS_WS              32
