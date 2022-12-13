@@ -7,7 +7,8 @@ from datetime import datetime
 
 connections = set()
 connections.update([
-    "ws://cobot.center:8286/pang/ws/sub?channel=instant&name=dGVzdA==&track=video",
+    #"ws://cobot.center:8286/pang/ws/sub?channel=instant&name=dGVzdA==&track=video",
+    "ws://cobot.center:8286/pang/ws/sub?channel=c3rl4286n88jq9lrl3ng&track=video",
     "ws://cobot.center:8286/pang/ws/sub?channel=instant&name=dGVzdA==&track=colink",
     "ws://cobot.center:8286/pang/ws/pub?channel=instant&name=dGVzdA==&track=metric"
 ]
