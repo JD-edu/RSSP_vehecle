@@ -50,5 +50,31 @@ C:\Users\conne\Downloads\RSSP_vehecle-main\Raspberry-PC_video_stream\Socket\rpi-
   npdata = np.fromstring(data,dtype=np.uint8)
 ```
 
+## TCP 통신 
+라즈베리파이와 PC 사이의 데이터 통신을 위해서는 TCP 프로토콜을 이용해서 통신을 합니다. 
+다음 두가지 파이썬 코드를 사용합니다. 
 
+### rpi-pc-video-server-multi.py
+이 파이썬 코드는 라즈베리파이에서 실행됩니다. 이 예제에서 라즈베리파이는 서버의 역할입니다.
+라즈베리파이에 연결된 pi 카메라 혹은 웹캠을 통하여 촬영된 비디오를 클라이언트로 전송합니다. 
+그리고 별도의 thread를 만들어서 TCP 소켓을 열고 이 소켓을 통해 데이터 통신을 수행합니다. 
 
+```python
+class TcpThread(Thread):
+    def __init__(self, ip, port):
+        Thread.__init__(self)
+        self.ip = ip
+        self.port = port
+        self.tcp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.tcp_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        tcp_address = (self.ip, self.port)
+        self.tcp_server.bind(tcp_address) 
+        print('Listening TCP at: ',tcp_address)
+...
+```
+
+### rpi-pc-video-client-multi.py
+이 파이썬 코드는 PC에서 실행합니다. 이 예제에서 PC는 클라이언트 역할입니다. 
+이미 라즈베리파이에서 서버역할의 파이썬 코드(rpi-pc-video-server-multi.py)를 실행한 상태에서 이 파이썬 코드를 실행하면 
+라즈베리파이에서 전송한 영상이 OpenCV창에 디스플레이 됩니다. 
+PC에서 라즈베리파이로 데이터를 보내기 위해서 pygame 모듈을 사용합니다. 
